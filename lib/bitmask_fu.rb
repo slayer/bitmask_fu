@@ -1,4 +1,28 @@
-module BitMaskFu
+# bitmask_fu - easy manipulation of bitmask attributes
+#
+# Author:: Vladislav Moskovets
+# Copyright:: Copyright (c) 2011
+# License:: MIT License (http://www.opensource.org/licenses/mit-license.php)
+#
+# You can declare attribute and values with the +bitmask+ method:
+#
+#   class User < ActiveRecord::Base
+#     bitmask :roles, [:user, :moderator, :admin]
+#   end
+#
+#   user = User.new
+#   user.roles = [:user, :moderator]
+#   user[:roles]
+#   # => 3
+#   user.user?
+#   # => true
+#   user.admin = true
+#   user.admin?
+#   # => true
+#   user.roles
+#   # => [:user, :moderator, :admin]
+#
+module BitmaskFu
 
   def self.included base
     base.extend ClassMethods

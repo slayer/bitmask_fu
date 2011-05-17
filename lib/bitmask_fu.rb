@@ -40,7 +40,7 @@ module BitmaskFu
 
       values.each do |f|
         # getter
-        define_method("#{f.to_s}?") do
+        define_method(f) do
           self.send(attribute).include? f
         end
         # setter
